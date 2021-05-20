@@ -2,14 +2,14 @@ package com.example.capitnrot
 
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ReplaceTextAction
-import androidx.test.espresso.action.TypeTextAction
+import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
-import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.junit.Rule
 import org.junit.Test
@@ -39,7 +39,7 @@ class MainActivityTest {
     fun should_show_widgets_on_capital() {
 
         val editText = onView(withId(R.id.editableText))
-        editText.perform(TypeTextAction("Hello"))
+        editText.perform(typeText("Hello"))
 
         assertVisible(R.id.buttonNext)
         assertVisible(R.id.angleLabel)
@@ -51,10 +51,10 @@ class MainActivityTest {
     fun should_hide_widgets_on_lower() {
 
         val editText = onView(withId(R.id.editableText))
-        editText.perform(TypeTextAction("Hello"))
+        editText.perform(typeText("Hello"))
         assertVisible(R.id.buttonNext)
 
-        editText.perform(ReplaceTextAction("world"))
+        editText.perform(replaceText("world"))
 
         assertInvisible(R.id.buttonNext)
         assertInvisible(R.id.angleLabel)
