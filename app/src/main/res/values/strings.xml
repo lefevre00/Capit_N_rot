@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Capit\'N\'rot</string>
+    <string name="put_a_string">Please put a text bellow</string>
+    <string name="select_an_angle">Then select an angle</string>
+    <string name="button_next">Apply angle</string>
+    <string name="text_placeholder">replace me !</string>
+    <string name="bad_text">Your text doesn\'t start with a capitalized letter !</string>
+</resources>
